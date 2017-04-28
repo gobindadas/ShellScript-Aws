@@ -1,0 +1,34 @@
+# Author: Gobinda Das
+# Email: gobindamca2011@gmail.com
+
+Installation Guide:
+In terminal run:
+#Install AWS CLI
+> sudo pip install awscli (If Python version is python2)
+> sudo pip3 install awscli (If Python version is python3)
+# Configure AWS Crudentials
+> aws configure
+  -> Give inputs in each step
+
+pemfileLocation='location for aws pem file to do ssh'
+user='instance username'
+chefLocation='.chef directory location to run bootstrap'
+
+Domain Setting:
+There are 2 files :
+change-resource-record-sets.json: json object for domain metadata
+modify-json.py: This file will update machine ip in json
+Note: Before running create-instance you need to change domain name in change-resource-record-sets.json
+ currnetly "Name": "gobinda.rlcatalyst.com"
+ to change domain add "Name": "newdomain.test.com"  (.test.com is must)
+
+
+Run shell script: (There are 9 command line parameters need to pass)
+ > sudo sh create-instance.sh "iamgeid" "instanceType" "keypairNamw" "securityGroup" "subnetId" "tagKeyValue" "ubuntu" "aws-pemfile-location" "chef-location"
+
+ Note:
+  All parameters should be in same order as mentioned. 
+  tagKeyValue will be  like: "Key=Name,Value=dev-test"
+
+ At last in browser type: gobinda.rlcatalyst.com
+  Wordpress home page will be shown.

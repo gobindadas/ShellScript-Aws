@@ -1,0 +1,1 @@
+{"Comment": "Create Cmana record for the dockerflow A record gobinda.test.com ", "Changes": [{"Action": "CREATE", "ResourceRecordSet": {"TTL": 30, "Type": "A", "ResourceRecords": [{"Value": "nodeIP"}], "Name": "gobinda.test.com"}}]}
